@@ -22,12 +22,11 @@ Route::group(['middleware' => 'guest'], function(){
     Route::get('/register', [RegisterController::class, 'index']);
 });
 
-    Route::post('/login', [LoginController::class, 'authenticate']);
-    Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
     
-    Route::post('/register', [RegisterController::class, 'store']);
+Route::post('/register', [RegisterController::class, 'store']);
     
-
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/dashboard', function() {return view('dashboard.index');});
 });
